@@ -479,7 +479,7 @@ export default class Server {
     if (url.locale?.redirect) {
       res.setHeader('Location', url.locale.redirect)
       res.statusCode = TEMPORARY_REDIRECT_STATUS
-      res.end()
+      res.end(url.locale.redirect)
       return
     }
 
@@ -1560,7 +1560,7 @@ export default class Server {
 
       res.statusCode = statusCode
       res.setHeader('Location', redirect.destination)
-      res.end()
+      res.end(redirect.destination)
     }
 
     // remove /_next/data prefix from urlPathname so it matches
